@@ -38,7 +38,7 @@ end
 
 local menu
 do
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TaskManager23/cripware/main/uilibrary.lua"))()
+    local library = loadstring(game:HttpGet("https://github.com/nitrixdev/skidware/blob/main/ui.lua"))()
 
     menu = library.new([[skid <font color="rgb(78, 93, 234)">ware</font>]], "nemv2\\")
     local tabs = {
