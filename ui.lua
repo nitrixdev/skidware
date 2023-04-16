@@ -165,18 +165,27 @@ function library.new(library_title, cfg_location)
         ScreenGui.Enabled = state
     end
 
-    uis.InputBegan:Connect(function(key)
-        if key.KeyCode ~= Enum.KeyCode.Insert then return end
+    uis.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then
+        return
+    end
 
-		        ScreenGui.Enabled = not ScreenGui.Enabled
-            menu.open = ScreenGui.Enabled
-            ScreenGui.Visible = not ScreenGui.Visible
+    if input.KeyCode == Enum.KeyCode.Insert then
+        ScreenGui.Enabled = not ScreenGui.Enabled
+        ScreenGui.Visible = not ScreenGui.Visible
+        menu.open = ScreenGui.Enabled
 
+        if ScreenGui.Enabled then
+            uis.MouseIconEnabled = true
             while ScreenGui.Enabled do
-                uis.MouseIconEnabled = true
                 rs.RenderStepped:Wait()
             end
-	end)
+        else
+            uis.MouseIconEnabled = false
+        end
+    end
+end)
+
 
     local ImageLabel = library:create("ImageButton", {
         Name = "Main",
