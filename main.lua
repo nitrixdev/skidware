@@ -38,7 +38,7 @@ end
 
 local menu
 do
-    local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/nitrixdev/skidware/main/ui.lua"))()
+    local library = loadstring(game:HttpGet("https://pastebin.com/raw/9jTLSqYH"))()
 
     menu = library.new([[universal <font color="rgb(78, 93, 234)">v1</font>]], "nemv2\\")
     local tabs = {
