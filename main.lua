@@ -38,9 +38,9 @@ end
 
 local menu
 do
-    local library = loadstring(game:HttpGet("https://github.com/nitrixdev/skidware/blob/main/ui.lua"))()
+    local library = loadstring(game:HttpGet("https://pastebin.com/raw/Y9GV7aj9"))()
 
-    menu = library.new([[skid <font color="rgb(78, 93, 234)">ware</font>]], "nemv2\\")
+    menu = library.new([[universal <font color="rgb(78, 93, 234)">v1</font>]], "nemv2\\")
     local tabs = {
         menu.new_tab("http://www.roblox.com/asset/?id=7300477598"),
         menu.new_tab("http://www.roblox.com/asset/?id=7300535052"),
@@ -263,16 +263,11 @@ do
         assist.element("Toggle", "enabled"):add_keybind()
         assist.element("Dropdown", "hitbox", {options = {"closest", "head", "torso"}})
         assist.element("Slider", "smoothing", {default = {min = 1, max = 50, default = 1}})
-        assist.element("Toggle", "backtrack"):add_keybind()
-        assist.element("Slider", "backtrack ms", {default = {min = 1, max = 400, default = 5}})
 
         local silent = aimbot.new_sector("silent aim")
         silent.element("Toggle", "enabled"):add_keybind()
-        silent.element("Dropdown", "hitbox", {options = {"closest", "head", "torso", "legs"}})
-        silent.element("Dropdown", "silent aim type", {options = {"legit", "blatant", "extreme"}})
+        silent.element("Dropdown", "hitbox", {options = {"closest", "head", "torso"}})
         silent.element("Slider", "hitchance", {default = {min = 1, max = 100, default = 100}})
-        silent.element("Toggle", "no recoil"):add_keybind()
-        silent.element("Toggle", "no spread"):add_keybind()
 
         local targeting = aimbot.new_sector("targeting", "Right")
         targeting.element("Dropdown", "prioritize", {options = {"crosshair", "distance", "lowest hp"}})
@@ -359,8 +354,6 @@ do
         character.element("Slider", "power", {default = {min = 50, max = 200, default = 50}})
         character.element("Slider", "height", {default = {min = 7, max = 50, default = 15}})
         character.element("Toggle", "noclip"):add_keybind()
-        character.element("Toggle", "speed bypass"):add_keybind()
-        character.element("Toggle", "jump bypass"):add_keybind()
 
         local NoclipLoop = RunService.Stepped:Connect(function()
             if not LocalPlayer.Character then return end
